@@ -3,7 +3,7 @@
 一个简单的C++霍夫曼编码实现，将输入二进制文件数据压缩成`.compressed`格式，并支持解压。  
 
 #### 命令行
-编译：`g++ huffman.cpp -o huffman -O2 -s -Wall`。  
+编译：`g++ huffman.cpp -o bin\huffman -O2 -s -Wall`。  
 压缩：`huffman file.txt`，程序会生成`file.txt.compressed`作为压缩的结果。  
 解压：`huffman file.txt.compressed`，程序会生成`file.txt`。如果`file.txt`已存在，则会提示替换。  
 

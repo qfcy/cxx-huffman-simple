@@ -291,6 +291,14 @@ bool ask_replace(const char *filename){
     char response=line[0];
     return response=='Y' || response=='y';
 }
+void lowerstr(char *str){ // 替代strlwr
+    size_t i=0;
+    while(str[i]!='\0'){
+        if(str[i]>='A' && str[i]<='Z')
+            str[i]+=0x20;
+        i++;
+    }
+}
 void process_file(const char *filename) {
     // 打开文件
     FILE *file = fopen(filename, "rb");
@@ -320,7 +328,7 @@ void process_file(const char *filename) {
     bool is_decompress=false;
 
     char *lower_filename=new char[len+1]; // 转换为小写
-    strcpy(lower_filename,filename);strlwr(lower_filename);
+    strcpy(lower_filename,filename);lowerstr(lower_filename);
     if (len>=strlen(EXTENSION) && \
         strcmp(lower_filename + len - strlen(EXTENSION), EXTENSION) == 0) {
         // 解压文件
